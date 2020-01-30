@@ -41,9 +41,9 @@ jobs:
           path: target
           key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
       - name: Build
-        run: cargo build --verbose --release --target ${{ matrix.target }}
+        run: cargo build --release --target ${{ matrix.target }}
       - name: Test
-        run: cargo test --verbose --release --target ${{ matrix.target }}
+        run: cargo test --release --target ${{ matrix.target }}
       - name: Package
         shell: bash
         run: |
