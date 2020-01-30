@@ -1,5 +1,5 @@
 [package]
-name = "my-test"
+name = "my_test"
 version = "0.1.0"
 authors = ["Hayato Ito <hayatoito@gmail.com>"]
 edition = "2018"
