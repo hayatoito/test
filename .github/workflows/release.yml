@@ -24,8 +24,7 @@ jobs:
       - name: Rustup target add
         if: matrix.os == 'ubuntu-latest'
         run: rustup target add ${{ matrix.target }}
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Build
         run: cargo build --verbose --release --target ${{ matrix.target }}
       - name: Package
