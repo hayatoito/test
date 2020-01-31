@@ -1,7 +1,7 @@
 # https://raw.githubusercontent.com/softprops/rust-bin-test/4afbc82754eb6f037defc5d020f67e56740e2dbd/.github/workflows/main.yml
 # https://github.com/softprops/rust-bin-test/blob/master/.github/workflows/main.yml
 
-name: Build
+name: build
 on: [push]
 jobs:
   build:

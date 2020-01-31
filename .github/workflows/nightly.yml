@@ -1,0 +1,38 @@
+# https://github.com/softprops/rust-bin-test/blob/master/.github/workflows/main.yml
+
+name: nightly
+on:
+  schedule:
+  - cron: 0 0 * * *
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        rust: [stable, beta, nightly]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Rustup
+        run: rustup update $${ matrix.rust }} && rustup default $${ matrix.rust }}
+      - name: Cache cargo registry
+        uses: actions/cache@v1
+        with:
+          path: ~/.cargo/registry
+          key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+      - name: Cache cargo index
+        uses: actions/cache@v1
+        with:
+          path: ~/.cargo/git
+          key: ${{ runner.os }}-cargo-index-${{ hashFiles('**/Cargo.lock') }}
+      - name: Cache cargo build
+        uses: actions/cache@v1
+        with:
+          path: target
+          key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
+      - name: Cargo update
+        run: cargo update
+      - name: Build
+        run: cargo build
+      - name: Test
+        run: cargo test
