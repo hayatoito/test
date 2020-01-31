@@ -3,7 +3,7 @@
 name: nightly
 on:
   schedule:
-  - cron: 0 0 * * *
+    - cron: 0 0 * * *
 jobs:
   build:
     strategy:
@@ -14,7 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Rustup
-        run: rustup update $${ matrix.rust }} && rustup default $${ matrix.rust }}
+        run: |
+          rustup update ${{ matrix.rust }}
+          rustup default ${{ matrix.rust }}
       - name: Cache cargo registry
         uses: actions/cache@v1
         with:
