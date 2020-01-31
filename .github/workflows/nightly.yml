@@ -1,5 +1,3 @@
-# https://github.com/softprops/rust-bin-test/blob/master/.github/workflows/main.yml
-
 name: nightly
 on:
   schedule:
@@ -38,3 +36,5 @@ jobs:
         run: cargo build
       - name: Test
         run: cargo test
+      - name: Clippy
+        run: cargo clippy --tests
