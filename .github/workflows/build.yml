@@ -1,5 +1,5 @@
 name: build
-on: [push]
+on: [push, pull_request]
 jobs:
   build:
     strategy:
@@ -8,8 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
-      - name: Rustup
-        run: rustup update stable
+      - run: rustup update stable
       - name: Cache cargo registry
         uses: actions/cache@v1
         with:

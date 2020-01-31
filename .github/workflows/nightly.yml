@@ -1,20 +1,17 @@
 name: nightly
 on:
   schedule:
-    - cron: 30 * * * *
+    - cron: 0 0 * * *
 jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest]
         rust: [stable, beta, nightly]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Rustup
-        run: |
-          rustup update ${{ matrix.rust }}
-          rustup default ${{ matrix.rust }}
+      - run: rustup update ${{ matrix.rust }}
+      - run: rustup default ${{ matrix.rust }}
       - run: cargo update
       - run: cargo build
       - run: cargo test
