@@ -5,3 +5,5 @@
 [![release](https://github.com/hayatoito/my-test/workflows/release/badge.svg)](https://github.com/hayatoito/my-test/actions)
 
 # Test
+
+gpg signature test
