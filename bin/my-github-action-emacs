@@ -15,4 +15,4 @@ args=(
   -l ~/.config/emacs/init.el
 )
 
-my-emacs -Q -batch $args
+emacs -Q -batch $args
