@@ -1,11 +1,8 @@
 name: build
-on: [push, pull_request]
+on: [push]
 jobs:
-  build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+  rust:
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: rust
@@ -27,3 +24,8 @@ jobs:
       - run: cargo test
       - run: cargo fmt --all -- --check
       - run: cargo clippy --all-targets --all-features -- --deny warnings
+  env:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: ./bin/my-github-action-env
