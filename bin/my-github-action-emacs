@@ -2,6 +2,10 @@
 
 setopt err_exit no_unset pipe_fail xtrace
 
+mkdir -p ~/.config/emacs
+ln -snf $GITHUB_WORKSPACE/emacs/lisp/early-init.el ~/.config/emacs
+ln -snf $GITHUB_WORKSPACE/emacs/lisp/init.el ~/.config/emacs
+
 args=(
   -Q -batch
   --eval='(message "%s" (emacs-version))'
