@@ -6,4 +6,5 @@ fn main() {
     log::debug!("debug");
     log::trace!("trace");
     println!("Hello, world!");
+    println!("Hello, world2!");
 }
