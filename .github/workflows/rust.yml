@@ -22,4 +22,4 @@ jobs:
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - run: sudo apt install zsh
-      - run: bin/my-github-action-rust
+      - run: ./bin/my-github-action-rust
