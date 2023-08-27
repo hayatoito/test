@@ -3,6 +3,9 @@
 setopt err_exit no_unset pipe_fail xtrace
 
 mkdir -p ~/.config/emacs
+
+ln -snf $GITHUB_WORKSPACE/emacs/emacs/elpa ~/.config/emacs
+ln -snf $GITHUB_WORKSPACE/emacs/emacs/tree-sitter/dist ~/.config/emacs/tree-sitter
 ln -snf $GITHUB_WORKSPACE/emacs/lisp/early-init.el ~/.config/emacs
 ln -snf $GITHUB_WORKSPACE/emacs/lisp/init.el ~/.config/emacs
 
