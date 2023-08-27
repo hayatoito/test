@@ -6,14 +6,11 @@
 
 ;;; Path
 
-(require 'my-path (expand-file-name "my-path" (cond (load-file-name
-                                                     (file-name-directory load-file-name))
-                                                    (buffer-file-name
-                                                     (file-name-directory buffer-file-name))
-                                                    (t
-                                                     "~/share/emacs/lisp"))))
+(require 'my-path (locate-user-emacs-file "lisp/my-path"))
 
 (message "load-path: %s" load-path)
+
+(require 'magit)
 
 (message "init.el ends here")
 
