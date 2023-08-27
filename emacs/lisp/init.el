@@ -8,6 +8,8 @@
 
 (require 'my-path (locate-user-emacs-file "lisp/my-path"))
 
+(package-initialize)
+
 (message "load-path: %s" load-path)
 
 (require 'magit)
