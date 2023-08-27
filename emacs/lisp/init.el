@@ -10,7 +10,6 @@
 
 (message "package-user-dir: %s" package-user-dir)
 (message "package-directory-list: %s" package-directory-list)
-
 (message "(directory-files package-user-dir): %s" (directory-files package-user-dir))
 
 (package-initialize)
