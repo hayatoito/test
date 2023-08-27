@@ -4,17 +4,14 @@ setopt err_exit no_unset pipe_fail xtrace
 
 mkdir -p ~/.config/emacs
 
-self=$GITHUB_WORKSPACE/emacs
+emacs=$GITHUB_WORKSPACE/emacs
 
-ln -snf $self/emacs/elpa ~/.config/emacs
-ln -snf $self/emacs/tree-sitter/dist ~/.config/emacs/tree-sitter
+ln -snf $emacs/emacs/elpa ~/.config/emacs
+ln -snf $emacs/emacs/tree-sitter/dist ~/.config/emacs/tree-sitter
 
-# ln -snf $self/etc ~/.config/emacs/etc
-ln -snf $self/lisp ~/.config/emacs/lisp
-# ln -snf $self/template ~/.config/emacs/template
+ln -snf $emacs/{etc,lisp,template} ~/.config/emacs
 
-ln -snf ~/.config/emacs/lisp/init.el ~/.config/emacs
-ln -snf ~/.config/emacs/lisp/early-init.el ~/.config/emacs
+ln -snf ~/.config/emacs/lisp/{init.el,early-init.el} ~/.config/emacs
 
 
 args=(
