@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - rust/**
-      - .github/owrkflows/rust.yml
+      - .github/workflows/rust.yml
 jobs:
   rust:
     runs-on: ubuntu-latest
@@ -22,4 +22,4 @@ jobs:
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
       - run: sudo apt install zsh
-      - run: ./bin/my-github-action-rust
+      - run: $GITHUB_WORKSPACE/bin/my-github-action-rust

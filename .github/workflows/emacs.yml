@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - emacs/**
-      - .github/owrkflows/emacs.yml
+      - .github/workflows/emacs.yml
 jobs:
   emacs:
     runs-on: ubuntu-latest
