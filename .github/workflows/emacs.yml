@@ -2,7 +2,8 @@ name: emacs
 on:
   push:
     paths:
-      - 'emacs/**'
+      - emacs/**
+      - .github/owrkflows/emacs.yml
 jobs:
   emacs:
     runs-on: ubuntu-latest

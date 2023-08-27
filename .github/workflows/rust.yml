@@ -2,7 +2,8 @@ name: rust
 on:
   push:
     paths:
-      - 'rust/**'
+      - rust/**
+      - .github/owrkflows/rust.yml
 jobs:
   rust:
     runs-on: ubuntu-latest
@@ -11,7 +12,6 @@ jobs:
         working-directory: rust
     steps:
       - uses: actions/checkout@v3
-      - run: rustup update stable
       - uses: actions/cache@v3
         with:
           path: |
@@ -21,9 +21,5 @@ jobs:
             ~/.cargo/git/db/
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-      - run: rustup component add rustfmt
-      - run: rustup component add clippy
-      - run: cargo build
-      - run: cargo test
-      - run: cargo fmt --all -- --check
-      - run: cargo clippy --all-targets --all-features -- --deny warnings
+      - run: sudo apt install zsh
+      - run: bin/my-github-action-rust
