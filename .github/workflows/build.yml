@@ -24,12 +24,6 @@ jobs:
       - run: cargo test
       - run: cargo fmt --all -- --check
       - run: cargo clippy --all-targets --all-features -- --deny warnings
-  env:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: sudo apt install zsh
-      - run: ./bin/my-github-action-env
   emacs:
     runs-on: ubuntu-latest
     steps:
@@ -40,4 +34,5 @@ jobs:
         with:
           submodules: true
       - run: sudo apt install zsh
+      - run: ./bin/my-github-action-env
       - run: ./bin/my-github-action-emacs
