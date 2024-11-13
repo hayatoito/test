@@ -18,6 +18,9 @@ jobs:
           - os: macOS-latest
             target: x86_64-apple-darwin
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: rust
     steps:
       - uses: actions/checkout@v4
       - run: rustup update stable
