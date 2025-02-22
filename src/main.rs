@@ -4,6 +4,7 @@ fn main() {
     log::warn!("warn");
     log::info!("info");
     log::debug!("debug");
-    log::trace!("trace");
+    log::trace!("trace hello");
+    // hello
     println!("Hello, world!");
 }
