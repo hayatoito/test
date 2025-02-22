@@ -7,4 +7,5 @@ fn main() {
     log::trace!("trace hello");
     // hello
     println!("Hello, world!");
+    println!("Hello, world2!");
 }

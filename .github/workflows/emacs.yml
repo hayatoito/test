@@ -1,0 +1,19 @@
+name: emacs
+on:
+  push:
+    paths:
+      - emacs/**
+      - .github/workflows/emacs.yml
+jobs:
+  emacs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: purcell/setup-emacs@master
+        with:
+          version: 29.1
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - run: sudo apt install zsh
+      - run: ./bin/my-github-action-env
+      - run: ./bin/my-github-action-emacs

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="site-content">
+  <header class="site-header">
+    <h1 class="site-title">{{ entry.title|striptags }}</h1>
+  </header>
+  {{ entry.content }}
+</section>
+{% endblock content %}
