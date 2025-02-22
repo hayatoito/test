@@ -1,3 +1,3 @@
-[submodule "emacs/emacs"]
-	path = emacs/emacs
-	url = git@github.com:hayatoito/emacs
+[submodule "emacs/elpa"]
+	path = emacs/elpa
+	url = git@github.com:hayatoito/elpa
