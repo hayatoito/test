@@ -4,12 +4,13 @@ setopt err_exit no_unset pipe_fail xtrace
 
 [[ -v GITHUB_ACTIONS ]] || exit 1
 
+export MY_EMACS_LISP=$GITHUB_WORKSPACE/emacs/lisp
+
 mkdir -p ~/.config/emacs
-ln -snf $GITHUB_WORKSPACE/emacs/{elpa,lisp} ~/.config/emacs
-ln -snf ~/.config/emacs/lisp/{init.el,early-init.el} ~/.config/emacs
+ln -snf $GITHUB_WORKSPACE/emacs/elpa ~/.config/emacs
 
 # Disable vterm.
-cat > ~/.config/emacs/lisp/my-vterm.el <<EOF
+cat > $MY_EMACS_LISP/my-vterm.el <<EOF
 ;;; my-vterm.el --- -*- lexical-binding: t; -*-
 (provide 'my-vterm)
 EOF
@@ -19,8 +20,8 @@ args=(
   --eval='(message "emacs-version: %s" (emacs-version))'
   --eval='(message "system-configuration-options: %s" system-configuration-options)'
   --eval='(message "system-configuration-features: %s" system-configuration-features)'
-  -l ~/.config/emacs/early-init.el
-  -l ~/.config/emacs/init.el
+  -l $MY_EMACS_LISP/early-init.el
+  -l $MY_EMACS_LISP/init.el
 )
 
 emacs -Q -batch $args
